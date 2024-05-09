@@ -9,10 +9,10 @@ M = genericMatrix(R,3,3)
 I = minors(2,M)
 F = selfDualForm res I; betti F
 
---note: d3 = (negative antidiagonal)*(dual d2) in selfDualForm
---the negative seems necessary for the basis of F2 to be hyperbolic
+--note: it seems that d3 = (negative antidiagonal)*(transpose d2) in selfDualForm
+--and that this negative is necessary for the basis of F2 to be hyperbolic
 
---compose d3 with projection onto isotropic subspace belonging to the "other" component
+--use an isotropic subspace belonging to the "other" component
 newd2 = F.dd_3^{0..6,8}
 newF = chainComplex(
     d1 = map(R^1,,dual gens trim ker dual newd2),
