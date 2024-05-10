@@ -69,19 +69,15 @@ F = res I
 
 --we compute a choice of multiplication by lifting in the following Schur complex on d2*
 --
---  0 -> F4 ** wedge^3 F1* -> F4 ** wedge^2 F1* ** F2* -g-> F4 ** F1* ** S2F2* -g'-> F4* ** S3F2*
+--  0 -> F4 ** wedge^3 F1* -> F4 ** wedge^2 F1* ** F2* -g-> F4 ** F1* ** S2F2* --> (what is next?)
 --
 S2F2 = target divProd(1,1,dual F_2);
 g = (
     (id_(dual F_1)**divProd(1,1,dual F_2))*(id_(dual F_1)**(dual F.dd_2)**id_(dual F_2))*((dual wedgeProduct(1,1,F_1))**id_(dual F_2))
     );
-g' = (
-    divProd(1,2,F_2)*((dual F.dd_2)**id_(S2F2))
-    );
-cycletest = (dual F.dd_1)**(divProd(1,1,F_2)*(dual (F2Form F)));
-zero (g'*cycletest) --check it's a cycle
 --this lifting step can be slow depending on how complicated the matrix d2 is...
 lifttest = cycletest//map(target cycletest,,g);
+zero (cycletest - g*lifttest)
 m11 = (1/2)*(inverse adjoint(F2Form F,F_2,F_2))*adjoint'(lifttest,exteriorPower(2,dual F_1),F_2);
 
 --check Kustin-Miller 3.1
