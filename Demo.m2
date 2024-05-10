@@ -71,7 +71,6 @@ F = res I
 --
 --  0 -> F4 ** wedge^3 F1* -> F4 ** wedge^2 F1* ** F2* -g-> F4 ** F1* ** S2F2* --> (what is next?)
 --
-S2F2 = target divProd(1,1,dual F_2);
 g = (
     (id_(dual F_1)**divProd(1,1,dual F_2))*(id_(dual F_1)**(dual F.dd_2)**id_(dual F_2))*((dual wedgeProduct(1,1,F_1))**id_(dual F_2))
     );
